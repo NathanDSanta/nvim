@@ -42,6 +42,7 @@ return {
 				clangd = {},
 				ts_ls = {},
 				jdtls = {},
+				qmlls = {},
 
 				lua_ls = {
 					settings = {
