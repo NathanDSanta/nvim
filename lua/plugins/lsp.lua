@@ -39,10 +39,36 @@ return {
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 			local servers = {
+				emmet_ls = {
+					capabilities = capabilities,
+					filetypes = {
+						"css",
+						"eruby",
+						"html",
+						"javascript",
+						"javascriptreact",
+						"less",
+						"sass",
+						"scss",
+						"svelte",
+						"pug",
+						"typescriptreact",
+						"vue",
+					},
+					init_options = {
+						html = {
+							options = {
+								-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+								["bem.enabled"] = true,
+							},
+						},
+					},
+				},
 				clangd = {},
 				ts_ls = {},
 				jdtls = {},
 				qmlls = {},
+				cssls = {},
 
 				lua_ls = {
 					settings = {
@@ -67,7 +93,7 @@ return {
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {},
-				automatic_installation = false,
+				automatic_installation = true,
 				handlers = {
 					function(server_name)
 						local server = servers[server_name] or {}
