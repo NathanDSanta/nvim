@@ -41,7 +41,6 @@ return { -- Autocompletion
 			default = { "lsp", "path", "snippets", "lazydev", "buffer" },
 			providers = {
 				lazydev = { module = "lazydev.integrations.blink", score_offset = 4 },
-				lsp = { score_offset = 5 },
 			},
 		},
 
